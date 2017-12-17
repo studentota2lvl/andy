@@ -1,0 +1,141 @@
+//////////////////////////////////
+// the first task/////////////////
+//////////////////////////////////
+
+var fs = require("fs");
+
+//var val = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+var val = "very big tits"
+
+if(typeof val === "string"){
+		fs.appendFileSync('letterForHomeWork13.txt', val, function (err) {
+    if (err) {
+    	throw err;
+    	console.log(err)
+    } else {
+    	console.log('Saved!')
+    }
+  }
+ );
+  fs.appendFileSync('letterForHomeWork13.txt', "\n", function (err) {
+    if (err) {
+    	throw err;
+    	console.log(err)
+    } else {
+    	console.log('+\n')
+    }
+  }
+ );
+}else{
+	for (var i = val.length - 1; i >= 0; i--) {
+	
+		fs.appendFileSync('letterForHomeWork13.txt', val[i], function (err) {
+    		if (err) {
+    			throw err;
+    			console.log(err)
+    		} else {
+    			console.log('Saved!')
+    		}
+  		});
+
+  		fs.appendFileSync('letterForHomeWork13.txt', "\n", function (err) {
+    		if (err) {
+    			throw err;
+    			console.log(err)
+    		} else {
+    			console.log('+\n')
+    		}
+  		});
+	}
+}
+
+
+//////////////////////////////////
+// the second task////////////////
+//////////////////////////////////
+
+// var nodemailer = require('nodemailer');
+
+// // Generate test SMTP service account from ethereal.email
+// // Only needed if you don't have a real mail account for testing
+// nodemailer.createTestAccount((err, account) => {
+
+//     // create reusable transporter object using the default SMTP transport
+//     let transporter = nodemailer.createTransport({
+//         host: 'smtp.ethereal.email',
+//         port: 587,
+//         //secure: false, // true for 465, false for other ports
+//         auth: {
+//             user: "qn66ypo5qzujiko2@ethereal.email", // generated ethereal user
+//             pass: "WxZaJ5bTDapK6QtyWn"  // generated ethereal password
+//         }
+//     });
+
+//     // setup email data with unicode symbols
+//     let mailOptions = {
+//         from: '"Fred Foo 👻" <qn66ypo5qzujiko2@ethereal.email>', // sender address
+//         to: '090893@inbox.ru', // list of receivers
+//         subject: 'Hello ✔', // Subject line
+//         text: 'Hello world?', // plain text body
+//         html: '<b>Hello world?</b>' // html body
+//     };
+
+//     // send mail with defined transport object
+//     transporter.sendMail(mailOptions, (error, info) => {
+//         if (error) {
+//             return console.log(error);
+//         }
+//         console.log('Message sent: %s', info.messageId);
+//         // Preview only available when sending through an Ethereal account
+//         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+//         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com>
+//         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+//     });
+// });
+
+
+// //delete require.cache['nodemailer'];
+
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'studentota2lvl@gmail.com',
+    pass: '*******'
+  }
+});
+
+var mailOptions = {
+  from: 'studentota2lvl@gmail.com',
+  to: '090893@inbox.ru',
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy! it\'s not easy. it so fucking hard'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+
+
+
+// if gmail not working
+// var smtpTransport = nodemailer.createTransport('SMTP', {
+//     service: 'Gmail',
+//     auth: {
+//       XOAuth2: {
+//         user: smtpConfig.user,
+//         clientId: smtpConfig.client_id,
+//         clientSecret: smtpConfig.client_secret,
+//         refreshToken: smtpConfig.refresh_token,
+//         accessToken: smtpConfig.access_token,
+//         timeout: smtpConfig.access_timeout - Date.now()
+//       }
+//     }
+//   }

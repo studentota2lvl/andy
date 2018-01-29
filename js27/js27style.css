@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    }
+body {
+    width: 1200px;
+    margin: 0 auto;
+    margin-left: 175px;
+    }
+
+/* first block ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#phoneTable {
+    float: left;
+    width: 75%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+
+th {
+    width: 20%;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+th {
+    background: #E4FB41;
+    height: 20px;
+    vertical-align: bottom;
+    padding: 10px;
+}
+
+td {
+    text-align: left;
+    width: 20%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+
+th:first-child,
+td:first-child,
+th:last-child,
+td:last-child {
+    width: 10%;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* second block ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#addNewContact {
+    width: 20%;
+    float: left;
+    margin-left: 50px;
+}
+
+input {
+    width: 150px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}

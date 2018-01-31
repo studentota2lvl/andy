@@ -4,12 +4,11 @@ $(function () {
     var $newContactSurname = $("#newContactSurname");
     var $newContactPhone = $("#newContactPhone");
     var $addNewContactButton = $("#addNewContactButton");
-    var $deleteDataButton = $("button.deleteContact");// кнопка определена
     $newContactPhone.on("change", buttonEnabled);
     $newContactSurname.on("change", buttonEnabled);
     $newContactName.on("change", buttonEnabled);
+    $phoneTable.on("click", "button", deleteContactButton);
 
-    $addNewContactButton.click(addNewContactClick);
 
 
     function buttonEnabled (event) {
@@ -24,7 +23,6 @@ $(function () {
         } else {
             $addNewContactButton.prop('disabled', true);
         }
-        console.log($deleteDataButton)
     }
 
     $addNewContactButton.click(addNewContactClick);
@@ -45,7 +43,6 @@ $(function () {
             var contactData = "<td></td><td>" + contactDataArr[0] + "</td><td>" + contactDataArr[1] + "</td><td>" + contactDataArr[2] + "</td>";
             var tr = "<tr>" + contactData + deleteButton + "</tr>";
             moveToTable (tr);
-            //console.log(tr)
         }
 
         function moveToTable (arg) {
@@ -55,41 +52,24 @@ $(function () {
     }
 
 
-    $deleteDataButton.click(deleteContactButton);//но работать это все не хочет, возможно дело в динамическом появлении
 
     function deleteContactButton() {
-        console.log("ffffff")
-        // var $tr = $(this).parents("tr");
-        // $tr.detach();
+        var $tr = $(this).parents("tr");
+        $tr.detach();
     }
 
 
+//funny fynctions
+    $phoneTable.on("mouseover", "button", (function() {
+        $(this).css("color", "red")
+    }));
+
+    $phoneTable.on("mouseout", "button", (function() {
+        $(this).css("color", "")
+    }))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+});
 
 
 
